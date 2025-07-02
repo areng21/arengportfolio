@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Areng | Data Analyst</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#121212',
+                        secondary: '#1E1E1E',
+                        accent: '#FFD700',
+                        text: '#F5F5F5',
+                        muted: '#A0A0A0'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
+            color: #F5F5F5;
+            scroll-behavior: smooth;
+        }
+        
+        .gold-divider {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #FFD700, transparent);
+            margin: 1rem 0;
+        }
+        
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #1E1E1E;
+            border: 1px solid #333;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-color: #FFD700;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #FFD700;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        
+        .tech-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .tech-icon:hover {
+            transform: scale(1.2);
+            color: #FFD700;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-primary border-b border-secondary py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="text-accent text-2xl font-bold">ARENG</div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-text nav-link">Home</a>
+                <a href="#about" class="text-text nav-link">About</a>
+                <a href="#projects" class="text-text nav-link">Projects</a>
+                <a href="#skills" class="text-text nav-link">Skills</a>
+                <a href="#contact" class="text-text nav-link">Contact</a>
+            </div>
+            <button class="md:hidden text-text">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center bg-primary">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 fade-in">
+                    <h4 class="text-accent mb-2 font-medium">DATA ANALYST</h4>
+                    <h1 class="text-5xl md:text-6xl font-bold mb-4">Hi, I'm <span class="text-accent">Areng</span></h1>
+                    <p class="text-xl mb-8 text-muted max-w-lg">Transforming raw data into meaningful insights that drive business decisions and create impact.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/areng21" class="border border-accent text-accent font-medium px-6 py-3 rounded hover:bg-accent hover:text-primary transition">View Work</a>
+                        <a href="https://forms.gle/M5rqWpGJ3YxEvgwK8" class="border border-accent text-accent font-medium px-6 py-3 rounded hover:bg-accent hover:text-primary transition">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-secondary">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/3 mb-10 md:mb-0">
+                    <h2 class="text-3xl font-bold mb-2 fade-in">About <span class="text-accent">Me</span></h2>
+                    <div class="gold-divider w-24 mb-6 fade-in delay-1"></div>
+                    <p class="text-muted mb-6 fade-in delay-2">Data-driven problem solver with expertise in statistical analysis and business intelligence.</p>
+                    <div class="flex space-x-4 fade-in delay-3">
+                        <a href="https://www.linkedin.com/in/christine-areng?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="w-10 h-10 rounded-full border border-muted text-muted hover:border-accent hover:text-accent flex items-center justify-center">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/areng21" class="w-10 h-10 rounded-full border border-muted text-muted hover:border-accent hover:text-accent flex items-center justify-center">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://x.com/christine_areng?s=11" class="w-10 h-10 rounded-full border border-muted text-muted hover:border-accent hover:text-accent flex items-center justify-center">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-2/3 ml-0 md:ml-10">
+                    <h3 class="text-xl font-semibold mb-6 fade-in">Who I Am</h3>
+                    <p class="text-muted mb-6 fade-in delay-1">I'm Areng, a passionate data analyst with 5+ years of experience in transforming complex datasets into actionable insights. My analytical approach combines technical expertise with business acumen to deliver meaningful results.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                        <div class="fade-in delay-1">
+                            <div class="flex mb-2">
+                                <div class="w-2 h-2 bg-accent mt-2 mr-2"></div>
+                                <p class="text-text font-medium">Data Visualization</p>
+                            </div>
+                            <p class="text-muted text-sm">Creating compelling visual stories from complex datasets using modern tools and techniques.</p>
+                        </div>
+                        <div class="fade-in delay-2">
+                            <div class="flex mb-2">
+                                <div class="w-2 h-2 bg-accent mt-2 mr-2"></div>
+                                <p class="text-text font-medium">Predictive Modeling</p>
+                            </div>
+                            <p class="text-muted text-sm">Developing statistical models to forecast trends and support data-driven decision making.</p>
+                        </div>
+                        <div class="fade-in delay-2">
+                            <div class="flex mb-2">
+                                <div class="w-2 h-2 bg-accent mt-2 mr-2"></div>
+                                <p class="text-text font-medium">Data Cleaning</p>
+                            </div>
+                            <p class="text-muted text-sm">Expert in preparing messy data for analysis with meticulous attention to detail.</p>
+                        </div>
+                        <div class="fade-in delay-3">
+                            <div class="flex mb-2">
+                                <div class="w-2 h-2 bg-accent mt-2 mr-2"></div>
+                                <p class="text-text font-medium">Business Intelligence</p>
+                            </div>
+                            <p class="text-muted text-sm">Translating technical findings into strategic recommendations for stakeholders.</p>
+                        </div>
+                    </div>
+                    
+                    <a href="https://1drv.ms/w/c/62307edabadac894/EZgtX_IrBWlLgPHUvfj7d1oBQ_ZULWSLhswlKrSur-v7CA?e=5EmgX7" class="inline-block border-b border-accent text-accent font-medium pb-1 fade-in delay-3">Download Resume</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-primary">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-bold mb-2">My <span class="text-accent">Work</span></h2>
+                <div class="gold-divider w-24 mx-auto mb-6"></div>
+                <p class="text-muted max-w-2xl mx-auto">A showcase of data analysis projects demonstrating my problem-solving approach and analytical skills.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="card rounded-lg overflow-hidden fade-in">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7d04f5a4-8bf5-4adc-8c1c-b7a5d92d6768.png" alt="Dashboard screenshot showing financial market trends with interactive charts and KPI metrics" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                            <button class="bg-accent text-primary px-4 py-2 rounded font-medium"></a> <a href="https://github.com/areng21">View Details</a></button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Financial Market Analysis</h3>
+                        <p class="text-muted text-sm mb-4">Interactive dashboard tracking key financial indicators and market trends.</p>
+                        <div class="flex space-x-2">
+                            <span class="text-xs bg-secondary text-text px-3 py-1 rounded-full">Python</span>
+                            <span class="text-xs bg-secondary text-text px-3 py-1 rounded-full">Power BI</span>
+                            <span class="text-xs bg-secondary text-text px-3 py-1 rounded-full">SQL</span>
+                            <span class="text-xs bg-secondary text-text px-3 py-1 rounded-full">ADVANCED EXCEL</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="card rounded-lg overflow-hidden fade-in delay-1">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0490e069-86fe-414e-bd7b-84e1f0046da3.png" alt="E-commerce customer segmentation analysis with demographic clusters and purchase behavior visualizations" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                            <button class="bg-accent text-primary px-4 py-2 rounded font-medium"><a href="https://github.com/areng21">View Details</a></button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Customer Segmentation</h3>
+                        <p class="text-muted text-sm mb-4">K-means clustering analysis to identify e-commerce customer personas.</p>
+                        <div class="flex space-x-2">
+                            <span class="text-xs bg-secondary text-text px-3 py-1 rounded-full">R</span>
+                            <span class="text-xs bg-secondary text-text px-3 py-1 rounded-full">Power BI</span>
+                            <span class="text-xs bg-secondary text-text px-3 py-1 rounded-full">K-Means</span>
+                            <span class="text-xs bg-secondary text-text px-3 py-1 rounded-full">SPSS</span>
+                            <span class="text-xs bg-secondary text-text px-3 py-1 rounded-full">STATA</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="card rounded-lg overflow-hidden fade-in delay-2">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/638f0164-a05c-4362-9e51-94a9a8b5e894.png" alt="Supply chain optimization model showing network routes, cost reductions, and efficiency gains" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                            <button class="bg-accent text-primary px-4 py-2 rounded font-medium"><a href="https://github.com/areng21">View Details</a></button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Supply Chain Optimization</h3>
+                        <p class="text-muted text-sm mb-4">Linear programming model to minimize logistics costs for retail chain.</p>
+                        <div class="flex space-x-2">
+                            <span class="text-xs bg-secondary text-text px-3 py-1 rounded-full">Python</span>
+                            <span class="text-xs bg-secondary text-text px-3 py-1 rounded-full">OR-Tools</span>
+                            <span class="text-xs bg-secondary text-text px-3 py-1 rounded-full">Pandas</span>
+                            <span class="text-xs bg-secondary text-text px-3 py-1 rounded-full">R-PROGRAMMING</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt42 fade-in">
+                <a href="https://github.com/areng21" class="inline-block border-b border-accent text-accent font-medium pb-1 mt-12">View All Projects</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-secondary">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-bold mb-2">Technical <span class="text-accent">Skills</span></h2>
+                <div class="gold-divider w-24 mx-auto mb-6"></div>
+                <p class="text-muted max-w-2xl mx-auto">Tools and technologies I use to extract insights from data and solve business problems.</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+                <!-- First Row -->
+                <div class="text-center fade-in">
+                    <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 tech-icon">
+                        <i class="fab fa-python text-3xl text-accent"></i>
+                    </div>
+                    <h4 class="font-semibold">Python</h4>
+                </div>
+                
+                <div class="text-center fade-in delay-1">
+                    <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 tech-icon">
+                        <i class="fas fa-database text-3xl text-accent"></i>
+                    </div>
+                    <h4 class="font-semibold">SQL</h4>
+                </div>
+                
+                <div class="text-center fade-in delay-2">
+                    <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 tech-icon">
+                        <i class="fab fa-r-project text-3xl text-accent"></i>
+                    </div>
+                    <h4 class="font-semibold">R</h4>
+                </div>
+                
+                <div class="text-center fade-in delay-3">
+                    <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 tech-icon">
+                        <i class="fas fa-table text-3xl text-accent"></i>
+                    </div>
+                    <h4 class="font-semibold">Excel</h4>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Data Viz Card -->
+                <div class="bg-primary p-6 rounded-lg fade-in">
+                    <h3 class="text-xl font-semibold mb-4 text-accent">Data Visualization</h3>
+                    <div>
+                        <div class="flex justify-between text-sm mb-2">
+                            <span>POWER BI</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="w-full bg-secondary rounded-full h-2">
+                            <div class="bg-accent h-2 rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-2">
+                            <span>TABLEAU</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="w-full bg-secondary rounded-full h-2">
+                            <div class="bg-accent h-2 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-2">
+                            <span>Matplotlib</span>
+                            <span>65%</span>
+                        </div>
+                        <div class="w-full bg-secondary rounded-full h-2">
+                            <div class="bg-accent h-2 rounded-full" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Analytics Card -->
+                <div class="bg-primary p-6 rounded-lg fade-in delay-1">
+                    <h3 class="text-xl font-semibold mb-4 text-accent">Analytics</h3>
+                    <canvas id="analyticsChart" height="200"></canvas>
+                </div>
+                
+                <!-- Other Skills Card -->
+                <div class="bg-primary p-6 rounded-lg fade-in delay-2">
+                    <h3 class="text-xl font-semibold mb-4 text-accent">Other Skills</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-secondary text-text px-3 py-1 rounded-full">Statistical Analysis</span>
+                        <span class="text-xs bg-secondary text-text px-3 py-1 rounded-full">Machine Learning</span>
+                        <span class="text-xs bg-secondary text-text px-3 py-1 rounded-full">KOBO TOOLBOX</span>
+                        <span class="text-xs bg-secondary text-text px-3 py-1 rounded-full">ETL</span>
+                        <span class="text-xs bg-secondary text-text px-3 py-1 rounded-full">A/B Testing</span>
+                        <span class="text-xs bg-secondary text-text px-3 py-1 rounded-full">SPSS</span>
+                        <span class="text-xs bg-secondary text-text px-3 py-1 rounded-full">Data Mining</span>
+                        <span class="text-xs bg-secondary text-text px-3 py-1 rounded-full">ADVANCED EXCEL</span>
+                        <span class="text-xs bg-secondary text-text px-3 py-1 rounded-full">Big Data</span>
+                        <span class="text-xs bg-secondary text-text px-3 py-1 rounded-full">STATA</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-primary">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center fade-in">
+                <h2 class="text-3xl font-bold mb-2">Get In <span class="text-accent">Touch</span></h2>
+                <div class="gold-divider w-24 mx-auto mb-6"></div>
+                <p class="text-muted mb-12">Have a data challenge or want to collaborate? I'd love to hear about your project.</p>
+            </div>
+            
+            <div class="max-w-2xl mx-auto bg-secondary p-8 rounded-lg fade-in delay-1">
+                <form>
+                    <div>
+                        <div>
+                            <label for="name" class="block text-text mb-2">Name</label>
+                            <input type="text" id="name" class="w-full bg-primary border border-secondary focus:border-accent rounded px-4 py-3 text-text outline-none transition">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-text mb-2">Email</label>
+                            <input type="email" id="email" class="w-full bg-primary border border-secondary focus:border-accent rounded px-4 py-3 text-text outline-none transition">
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label for="subject" class="block text-text mb-2">Subject</label>
+                        <input type="text" id="subject" class="w-full bg-primary border border-secondary focus:border-accent rounded px-4 py-3 text-text outline-none transition">
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-text mb-2">Message</label>
+                        <textarea id="message" rows="5" class="w-full bg-primary border border-secondary focus:border-accent rounded px-4 py-3 text-text outline-none transition"></textarea>
+                    </div>
+                    <button type="submit" class="bg-accent text-primary font-medium px-8 py-3 rounded hover:bg-opacity-90 transition w-full md:w-auto"></a> <a href="mailto:arengchristine@gmail.com">Send Message</a></button>
+                    <form id="contactForm" action="mailto:arengchristine@gmail.com" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <input type="hidden" name="_subject" value="New Message From Portfolio Site">
+                        <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you">
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-secondary py-8 border-t border-primary">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0 text-center md:text-left">
+                    <p class="text-muted text-sm">© 2025 Areng. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-muted hover:text-accent transition">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="text-muted hover:text-accent transition">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-muted hover:text-accent transition">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-muted hover:text-accent transition">
+                        <i class="fab fa-medium"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Initialize Chart.js
+        document.addEventListener('DOMContentLoaded', function() {
+            // Analytics Skills Chart
+            const analyticsCtx = document.getElementById('analyticsChart').getContext('2d');
+            const analyticsChart = new Chart(analyticsCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['Statistical Analysis', 'Predictive Modeling', 'Data Mining', 'Data Cleaning', 'ETL', 'A/B Testing'],
+                    datasets: [{
+                        label: 'Analytics Skills',
+                        data: [90, 85, 80, 95, 75, 70],
+                        backgroundColor: 'rgba(255, 215, 0, 0.2)',
+                        borderColor: 'rgba(255, 215, 0, 1)',
+                        borderWidth: 2,
+                        pointBackgroundColor: 'rgba(255, 215, 0, 1)',
+                        pointRadius: 4
+                    }]
+                },
+                options: {
+                    scales: {
+                        r: {
+                            angleLines: {
+                                color: '#333'
+                            },
+                            grid: {
+                                color: '#333'
+                            },
+                            pointLabels: {
+                                color: '#A0A0A0'
+                            },
+                            ticks: {
+                                display: false,
+                                backdropColor: 'transparent'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+            
+            // Mobile menu toggle
+            const menuButton = document.querySelector('.md\\:hidden');
+            const navLinks = document.querySelector('.hidden.md\\:flex');
+            
+            menuButton.addEventListener('click', function() {
+                navLinks.classList.toggle('hidden');
+                navLinks.classList.toggle('flex');
+                navLinks.classList.toggle('flex-col');
+                navLinks.classList.toggle('absolute');
+                navLinks.classList.toggle('top-16');
+                navLinks.classList.toggle('right-4');
+                navLinks.classList.toggle('bg-primary');
+                navLinks.classList.toggle('p-4');
+                navLinks.classList.toggle('rounded-lg');
+                navLinks.classList.toggle('border');
+                navLinks.classList.toggle('border-secondary');
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if (!navLinks.classList.contains('hidden')) {
+                            menuButton.click();
+                        }
+                    }
+                });
+            });
+            
+            // Animation observer
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            fadeElements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
+
